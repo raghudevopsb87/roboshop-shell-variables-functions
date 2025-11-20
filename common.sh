@@ -75,3 +75,20 @@ python_setup() {
 
   systemd_setup
 }
+
+java_setup() {
+  echo -e ${color}Install Maven${no_color}
+  dnf install maven -y &>>/tmp/roboshop.log
+  echo Status - $? &>>/tmp/roboshop.log
+
+  app_prereq
+
+  cd /app
+  echo -e ${color}Download Java Dependencies and Compile code${no_color}
+  mvn clean package &>>/tmp/roboshop.log
+  mv target/${component}-1.0.jar ${component}.jar &>>/tmp/roboshop.log
+  echo Status - $?
+
+  systemd_setup
+}
+
