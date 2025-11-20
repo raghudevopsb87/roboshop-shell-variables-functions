@@ -15,7 +15,10 @@ app_prereq() {
   echo Status - $?
 
   echo -e ${color}Add RoboShop User${no_color}
+  id roboshop &>>/tmp/roboshop.log
+  if [ $? -eq 1 ]; then
   useradd roboshop &>>/tmp/roboshop.log
+  fi
   echo Status - $?
 
   echo -e ${color}Delete existing app content${no_color}
