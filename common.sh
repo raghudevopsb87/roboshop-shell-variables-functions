@@ -79,7 +79,7 @@ python_setup() {
 java_setup() {
   echo -e ${color}Install Maven${no_color}
   dnf install maven -y &>>/tmp/roboshop.log
-  echo Status - $? &>>/tmp/roboshop.log
+  echo Status - $?
 
   app_prereq
 
