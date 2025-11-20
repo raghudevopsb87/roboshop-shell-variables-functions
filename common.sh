@@ -7,7 +7,7 @@ nodejs_setup() {
   useradd roboshop
   cp ${component}.service /etc/systemd/system/${component}.service
 
-
+  rm -rf /app
   mkdir /app
 
   curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
